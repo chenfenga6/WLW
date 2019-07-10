@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--namespace 路径 指向dao层接口-->
+<mapper namespace="com.Fate_Project.Dao.HistoryDao" >
+
+    <!--resultType 指向entity中对应的实体-->
+    <select id="Select_All" parameterType="map" resultType="com.Fate_Project.Entity.History">
+        select * from history_online;
+    </select>
+
+    <select id="Select_By_Tid" parameterType="map" resultType="com.Fate_Project.Entity.History">
+        select * from history_online where tid = #{tid};
+    </select>
+
+
+</mapper>

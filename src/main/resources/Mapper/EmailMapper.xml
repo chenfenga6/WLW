@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--namespace 路径 指向dao层接口-->
+<mapper namespace="com.Fate_Project.Dao.EmailDao" >
+
+    <!--resultType 指向entity中对应的实体-->
+    <select id="Select_By_Email" parameterType="String" resultType="com.Fate_Project.Entity.Email">
+        select * from email_data where email=#{email};
+    </select>
+
+    <insert id="ReplaceEmail"   parameterType="com.Fate_Project.Entity.Email">
+        replace into email_data (email,flag) values (#{email},#{flag});
+    </insert>
+
+</mapper>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--namespace 路径 指向dao层接口-->
+<mapper namespace="com.Fate_Project.Dao.TerminalDao" >
+
+    <!--resultType 指向entity中对应的实体-->
+    <select id="Select_All" parameterType="map" resultType="com.Fate_Project.Entity.Terminal">
+        select * from terminal_data;
+    </select>
+
+    <select id="Select_byTid" parameterType="int" resultType="com.Fate_Project.Entity.Terminal">
+        select * from terminal_data where tid=#{tid};
+    </select>
+
+    <update id="Updata_tuser_byTid">
+        update terminal_data set tuser=#{newtuser} where tid=#{tid};
+    </update>
+
+    <update id="Updata_tstate_byTid">
+        update terminal_data set tstate=#{tstate} where tid=#{tid};
+    </update>
+
+    <update id="Updata_wstate_byTid">
+        update terminal_data set wstate=#{wstate} where tid=#{tid};
+    </update>
+
+    <update id="Updata_astate_byTid">
+        update terminal_data set astate=#{astate} where tid=#{tid};
+    </update>
+
+    <update id="Updata_dstate_byTid">
+        update terminal_data set dstate=#{dstate} where tid=#{tid};
+    </update>
+
+    <update id="Updata_phstate_byTid">
+        update terminal_data set phstate=#{phstate} where tid=#{tid};
+    </update>
+
+    <!--修改传感器数据阈值-->
+    <update id="Updata_wmax_byTid">
+        update terminal_data set wmax=#{wmax} where tid=#{tid};
+    </update>
+
+    <update id="Updata_tmax_byTid">
+        update terminal_data set tmax=#{tmax} where tid=#{tid};
+    </update>
+
+    <update id="Updata_hmax_byTid">
+        update terminal_data set hmax=#{hmax} where tid=#{tid};
+    </update>
+
+    <update id="Updata_amax_byTid">
+        update terminal_data set amax=#{amax} where tid=#{tid};
+    </update>
+
+    <update id="Updata_watempmax_byTid">
+        update terminal_data set watempmax=#{watempmax} where tid=#{tid};
+    </update>
+
+    <update id="Updata_dmax_byTid">
+        update terminal_data set dmax=#{dmax} where tid=#{tid};
+    </update>
+
+    <update id="Updata_phtempmax_byTid">
+        update terminal_data set phtempmax=#{phtempmax} where tid=#{tid};
+    </update>
+
+    <update id="Updata_phmax_byTid">
+        update terminal_data set phmax=#{phmax} where tid=#{tid};
+    </update>
+
+    <update id="Updata_phmvmax_byTid">
+        update terminal_data set phmvmax=#{phmvmax} where tid=#{tid};
+    </update>
+
+    <update id="Updata_warn_byTid">
+        update terminal_data set warn=#{warn} where tid=#{tid};
+    </update>
+
+
+</mapper>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--namespace 路径 指向dao层接口-->
+<mapper namespace="com.Fate_Project.Dao.UserDao" >
+
+    <!--resultType 指向entity中对应的实体-->
+    <select id="Select_All" parameterType="map" resultType="com.Fate_Project.Entity.User">
+        select * from user_data;
+    </select>
+
+    <select id="Select_By_Uid" parameterType="int" resultType="com.Fate_Project.Entity.User">
+        select * from user_data where uid=#{uid};
+    </select>
+
+    <select id="Select_By_Uemail" parameterType="String" resultType="com.Fate_Project.Entity.User">
+        select * from user_data where uemail=#{uemail};
+    </select>
+
+    <select id="Select_By_Uphone" parameterType="String" resultType="com.Fate_Project.Entity.User">
+        select * from user_data where uphone=#{uphone};
+    </select>
+
+
+    <!--useGeneratedKeys="true"：    返回自增主键的值
+    keyProperty                     是Entity实体类中对象的 自增的 字段名-->
+    <insert id="Insert_User" useGeneratedKeys="true" keyProperty="uid"  parameterType="com.Fate_Project.Entity.User">
+        insert into user_data(uname,upwd,utnum,ustate,uimage,utid,uontime,uofftime,uemail,uphone,uflag) values (#{uname},#{upwd},#{utnum},#{ustate},#{uimage},#{utid},#{uontime},#{uofftime},#{uemail},#{uphone},#{uflag})
+    </insert>
+
+    <update id="Update_upwd_byEmail" parameterType="String">
+        update user_data set upwd=#{upwd} where uemail=#{uemail};
+    </update>
+
+    <update id="Update_upwd_byPhone" parameterType="String">
+        update user_data set upwd=#{upwd} where uphone=#{uphone};
+    </update>
+
+    <update id="Updata_uemail_byEmail" parameterType="String">
+        update user_data set uemail=#{newEmail} where uemail=#{uemail};
+    </update>
+
+    <update id="Updata_uemail_byPhone" parameterType="String">
+        update user_data set uemail=#{newEmail} where uphone=#{uphone};
+    </update>
+
+    <update id="Updata_uphone_byEmail" parameterType="String">
+        update user_data set uphone=#{newPhone} where uemail=#{uemail};
+    </update>
+
+    <update id="Updata_utnum_byUid" parameterType="int">
+        update user_data set utnum=#{newutnum} where uid=#{uid};
+    </update>
+
+    <update id="Updata_utid_byUid" >
+        update user_data set utid=#{newtid} where uid=#{uid};
+    </update>
+
+    <update id="Updata_ustate_byUid" >
+        update user_data set ustate=#{ustate} where uid=#{uid};
+    </update>
+
+
+
+</mapper>
